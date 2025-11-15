@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f7;
+}
+
+:root {
+    --box-width: 25px;
+}
+
+label {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease;
+}
+
+.circle {
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    border: 2px solid #2e2e2e;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.cls_btn {
+    transform: translate(-50%, -50%) rotate(270deg);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.cls_btn i {
+    font-size: 35px;
+    color: #2e2e2e;
+    cursor: pointer;
+}
+
+.expend_container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line > div {
+    width: 150px;
+    aspect-ratio: 1;
+    margin: 2.5px;
+    transition: all 1s ease;
+    display: flex;
+    justify-content: var(--row);
+    align-items: var(--ver);
+}
+
+/* line first */
+.one { --row: right; --ver: end; }
+.two { --row: center; --ver: end; }
+.thr { --row: left; --ver: end; }
+
+/* line second */
+.fou { --row: right; --ver: center; }
+.fiv { --row: center; --ver: center; }
+.six { --row: left; --ver: center; }
+
+/* line third */
+.sev { --row: right; --ver: start; }
+.eig { --row: center; --ver: start; }
+.nin { --row: left; --ver: start; }
+
+.inner {
+    background-color: #2e2e2e;
+    display: flex;
+    transform: translate(var(--dist));
+    --num: 62.5px;
+    --reverse-num: -62.5px;
+    transition: all 1s ease;
+}
+
+.one .inner { --dist: var(--num), var(--num) }
+.two .inner { --dist: 0, var(--num) }
+.thr .inner { --dist: var(--reverse-num), var(--num) }
+.fou .inner { --dist: var(--num), 0 }
+/* fiv */
+.six .inner { --dist: var(--reverse-num), 0 }
+.sev .inner { --dist: var(--num), var(--reverse-num) }
+.eig .inner { --dist: 0, var(--reverse-num) }
+.nin .inner { --dist: var(--reverse-num), var(--reverse-num) }
+
+img {
+    object-fit: cover;
+    width: var(--box-width);
+    aspect-ratio: 1;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+/* delay */
+.one img { transition-delay: .1s; }
+.two img { transition-delay: .2s; }
+.thr img { transition-delay: .3s; }
+.fou img { transition-delay: .4s; }
+.fiv img { transition-delay: .5s; }
+.six img { transition-delay: .6s; }
+.sev img { transition-delay: .7s; }
+.eig img { transition-delay: .8s; }
+.nin img { transition-delay: .9s; }
+
+/* ++ .3s */
+.first .inner { transition-delay: .1s; }
+.second .inner { transition-delay: .4s; }
+.third .inner { transition-delay: .7s; }
+
+#show:checked ~ .circle { transform: translate(-50%, 450%); width: 60px; }
+#show:checked ~ .circle .cls_btn { opacity: 1; visibility: visible; transform: translate(-50%, -50%) rotate(0); }
+#show:checked ~ .expend_container .inner { --dist: 0; }
+#show:checked ~ .expend_container img { --box-width: 150px; opacity: 1; }
