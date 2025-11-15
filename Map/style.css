@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrap {
+    position: relative;
+    width: 800px;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.wrap > img {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.bus {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation: bus infinite linear 10s;
+}
+
+@keyframes bus {
+    from { left: 55%; top: 15%; }
+    16.7% { left: 44%; top: 30%; }
+    33.4% { left: 54%; top: 45%; }
+    50.1% { left: 37%; top: 57%; }
+    66.8% { left: 39%; top: 63%; }
+    83.5% { left: 67%; top: 62%; }
+    to { left: 72%; top: 71%; }
+}
