@@ -5,60 +5,62 @@
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #22222f;
 }
 
-ul {
-    /* overflow: hidden; */
-    width: 500px;
+label {
+    display: block;
+    padding: 0 15px;
+    width: 400px;
+    background-color: #f0f0f7;
+    margin: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 60px;
+    transition: .3s ease-out;
 }
 
-.li {
+.title {
     position: relative;
-    list-style: none;
-    padding: 0 10px;
-    display: block;
-    margin: 30px 0;
-    overflow: hidden;
-    border: 1px solid rgb(196, 196, 196);
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.li > p {
-    display: block;
-    text-transform: capitalize;
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    padding-left: 10px;
-}
-
-div {
+    font-size: 18px;
     width: 100%;
-    /* height: 150px; */
-    height: 0;
-    overflow: hidden;
-    border-radius: 5px;
-    /* margin-bottom: 20px; */
-    background-color: rgb(218, 227, 235);
-    transition: 0.4s ease-in-out;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
 }
 
-div p {
-    padding: 15px;
+.title i {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #2e2e2e;
+    transition: .15s ease-out;
 }
 
-#one:checked ~ #one .one,
-#two:checked ~ #two .two,
-#three:checked ~ #three .three,
-#four:checked ~ #four .four
+.card_content {
+    padding: 15px 0;
+    word-break: break-all;
+    font-size: 15px;
+    border-top: 1px solid #c0c0c0;
+}
+
+#one:checked ~ .menu .one,
+#two:checked ~ .menu .two,
+#three:checked ~ .menu .three,
+#four:checked ~ .menu .four
 {
-    height: 120px;
-    margin-bottom: 10px;
+    height: 160px;
+}
+
+#one:checked ~ .menu .one i,
+#two:checked ~ .menu .two i,
+#three:checked ~ .menu .three i,
+#four:checked ~ .menu .four i
+{
+    transform: rotate(180deg);
 }
